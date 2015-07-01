@@ -56,10 +56,10 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
         Log.d(TAG, "initialize...");
         startGps();
 				appView = webView;
-    } 
+    }
 
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		Log.d(TAG, "action => " + action);
+		Log.d(TAG, "action: " + action);
 		if (action.equals("getStatus")) {
         JSONObject r = new JSONObject();
         r.put("gpsEnabled", gpsEnabled);
