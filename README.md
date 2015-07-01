@@ -2,7 +2,7 @@
 GPS Plugin
 ====================
 
-GPS plugin for android.
+GPS plugin for android. (under development)
 
 
 Methods
