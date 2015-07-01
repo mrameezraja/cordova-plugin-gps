@@ -17,7 +17,7 @@ navigator.gps.getStatus
 <pre>
 <code>
   navigator.gps.getStatus(function(gpsstats){
-
+    console.log(JSON.stringify(gpsstats));
   }, function(error){
     console.log(error);
   })
@@ -36,7 +36,7 @@ navigator.gps.getCurrentLocation
 <pre>
 <code>
   navigator.gps.getCurrentLocation(function(position){
-      console.log(position);
+      console.log(JSON.stringify(gpsstats));
   }, function(error){
     console.log(error);
   })
