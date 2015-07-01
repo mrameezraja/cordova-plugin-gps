@@ -10,7 +10,7 @@
     <license>MIT</license>
 
     <js-module src="www/gps.js" name="gps">
-        <clobbers target="navigator.gps" />
+        <clobbers target="gps" />
     </js-module>
 
    <!-- android -->

@@ -12,8 +12,8 @@ Installation
 
 Methods
 -------
-- navigator.gps.getStatus
-- navigator.gps.getCurrentLocation
+- window.plugins.gps.getStatus
+- window.plugins.gps.getCurrentLocation
 
 
 navigator.gps.getStatus
@@ -21,7 +21,7 @@ navigator.gps.getStatus
 
 <pre>
 <code>
-  navigator.gps.getStatus(function(gpsstats){
+  window.plugins.gps.getStatus(function(gpsstats){
     console.log(JSON.stringify(gpsstats));
   }, function(error){
     console.log(error);
@@ -35,12 +35,12 @@ Response fields:
 - grade
 - accuracy
 
-navigator.gps.getCurrentLocation
+window.plugins.gps.getCurrentLocation
 =================
 
 <pre>
 <code>
-  navigator.gps.getCurrentLocation(function(position){
+  window.plugins.gps.getCurrentLocation(function(position){
       console.log(JSON.stringify(position));
   }, function(error){
     console.log(error);

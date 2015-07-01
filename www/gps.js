@@ -17,11 +17,13 @@ GPS.prototype.getCurrentLocation = function (successCallback, errorCallback) {
     cordova.exec(onsuccess, errorCallback, "GPS", "getCurrentLocation");
 }
 
-/*if(!window.plugins) {
+if(!window.plugins) {
     window.plugins = {};
 }
 if (!window.plugins.gps) {
     window.plugins.gps = new GPS();
-}*/
+}
 
-module.exports = GPS;
+if(window.module){
+  module.exports = GPS;
+}
