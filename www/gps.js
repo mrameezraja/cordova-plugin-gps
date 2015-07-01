@@ -25,5 +25,5 @@ if (!window.plugins.gps) {
 }*/
 
 if (typeof module != 'undefined' && module.exports) {
-    module.exports = GPSFix;
+    module.exports = GPS;
 }
