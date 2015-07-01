@@ -41,7 +41,7 @@ navigator.gps.getCurrentLocation
 <pre>
 <code>
   navigator.gps.getCurrentLocation(function(position){
-      console.log(JSON.stringify(gpsstats));
+      console.log(JSON.stringify(position));
   }, function(error){
     console.log(error);
   })
