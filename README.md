@@ -29,7 +29,7 @@ navigator.gps.getStatus
 </code>
 </pre>
 
-Available fields:
+Response fields:
 - gpsEnabled
 - gpsFix
 - grade

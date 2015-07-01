@@ -21,9 +21,7 @@ GPS.prototype.getCurrentLocation = function (successCallback, errorCallback) {
     window.plugins = {};
 }
 if (!window.plugins.gps) {
-    window.plugins.gps = new GPSFix();
+    window.plugins.gps = new GPS();
 }*/
 
-if (typeof module != 'undefined' && module.exports) {
-    module.exports = GPS;
-}
+module.exports = GPS;
