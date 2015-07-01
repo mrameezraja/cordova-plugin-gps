@@ -1,27 +1,23 @@
 
-AsyncContacts Plugin
+GPS Plugin
 ====================
 
-Load contacts from iOS address book asynchronously (upto 15000 contacts in ~5-10 seconds)
-
-This plugin is inspired from github.com/Alterplay/APAddressBook.
-
-<pre><code>cordova plugin add https://github.com/mrameezraja/cordova-async-contacts-plugin.git</code></pre>
+GPS plugin for android.
 
 
 Methods
 -------
-- addressbook.getAsync
-- addressbook.checkPermission
+- navigator.gps.getStatus
+- navigator.gps.getCurrentLocation
 
 
-addressbook.getAsync
+navigator.gps.getStatus
 =================
 
 <pre>
 <code>
-  window.plugins.addressbook.getAsync(function(contacts){
-      console.log(contacts.length);
+  navigator.gps.getStatus(function(gpsstats){
+
   }, function(error){
     console.log(error);
   })
@@ -29,18 +25,18 @@ addressbook.getAsync
 </pre>
 
 Available fields:
-- firstName
-- middleName
-- lastName
-- phones
+- gpsEnabled
+- gpsFix
+- grade
+- accuracy
 
-addressbook.checkPermission
+navigator.gps.getCurrentLocation
 =================
 
 <pre>
 <code>
-  window.plugins.addressbook.checkPermission(function(permission){
-      console.log(permission);
+  navigator.gps.getCurrentLocation(function(position){
+      console.log(position);
   }, function(error){
     console.log(error);
   })
@@ -51,4 +47,4 @@ addressbook.checkPermission
 Supported Platforms
 -------------------
 
-- iOS
+- Android
