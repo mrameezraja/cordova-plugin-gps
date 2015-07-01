@@ -4,6 +4,11 @@ GPS Plugin
 
 GPS plugin for android. (under development)
 
+Installation
+------------
+
+<code> cordova plugin add https://github.com/mrameezraja/cordova-plugin-gps </code>
+
 
 Methods
 -------
