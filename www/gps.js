@@ -8,17 +8,11 @@ var gps = function() {
 };
 
 gps.prototype.getStatus = function (successCallback, errorCallback) {
-    var onsuccess = function(gpsStatus){
-      successCallback(JSON.parse(gpsStatus));
-    }
-    exec(onsuccess, errorCallback, "GPS", "getStatus", []);
+    exec(successCallback, errorCallback, "GPS", "getStatus", []);
 }
 
 gps.prototype.getCurrentLocation = function (successCallback, errorCallback) {
-    var onsuccess = function(location){
-      successCallback(JSON.parse(location));
-    }
-    exec(onsuccess, errorCallback, "GPS", "getCurrentLocation", []);
+    exec(successCallback, errorCallback, "GPS", "getCurrentLocation", []);
 }
 var gpsPlugin = new gps();
 module.exports = gpsPlugin;
