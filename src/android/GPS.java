@@ -53,9 +53,9 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 	@Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-        Log.d(TAG, "initialize...");
+        //Log.d(TAG, "initialize...");
         startGps();
-				appView = webView;
+		appView = webView;
     }
 
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -90,7 +90,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
   }
 
 	public void startGps(){
-		Log.d(TAG, "startGps starting...");
+		//Log.d(TAG, "startGps starting...");
 		// ask Android for the GPS service
 		locationManager = (LocationManager) cordova.getActivity().getSystemService(Context.LOCATION_SERVICE);
 		// make a delegate to receive callbacks
@@ -99,12 +99,12 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 		locationManager.addGpsStatusListener(gpsListener);
 		// ask for updates on the GPS location
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,MINIMUM_UPDATE_TIME, MINIMUM_UPDATE_DISTANCE, gpsListener);
-		Log.d(TAG, "startGps started");
+		//Log.d(TAG, "startGps started");
 	}
 
 	public boolean isGpsEnabled() {
         boolean result = isLocationProviderEnabled(LocationManager.GPS_PROVIDER);
-        Log.d(TAG, "GPS enabled: " + result);
+        //Log.d(TAG, "GPS enabled: " + result);
         return result;
     }
 
@@ -218,16 +218,14 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 				satellitesTotal = newSatTotal;
 				satellitesUsed = newSatUsed;
 
-				Log.d(TAG, "sending onGpsStatusChanged...");
-				appView.sendJavascript("cordova.fireWindowEvent('onGpsStatusChanged', { 'gpsEnabled':'"+ gpsEnabled +"', 'gpsFix':'"+ gpsFix +"', 'accuracy':'"+ accuracy +"', 'grade':'"+ getGrade() +"' });");
-
-				//sendJavascript("cordova.fireWindowEvent('onGpsStatusChanged', { 'gpsEnabled':" + Boolean.toString(gpsEnabled)+", 'gpsFix': "+ Boolean.toString(gpsFix) +", 'accuracy': "+ getGrade() +" });");
+				//Log.d(TAG, "sending onGpsStatusChanged...");
+				//appView.sendJavascript("cordova.fireWindowEvent('onGpsStatusChanged', { 'gpsEnabled':'"+ gpsEnabled +"', 'gpsFix':'"+ gpsFix +"', 'accuracy':'"+ accuracy +"', 'grade':'"+ getGrade() +"' });");
 			}
 		}
 
 		@Override
 		public void onLocationChanged(Location location) {
-			Log.d(TAG, "calling onLocationChanged...");
+			//Log.d(TAG, "calling onLocationChanged...");
 			locationTime = location.getTime();
 			latitude = location.getLatitude();
 			longitude = location.getLongitude();
@@ -255,16 +253,19 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 		@Override
 		public void onStatusChanged(String provider, int status, Bundle extras) {
 			/* dont need this info */
+            //Log.d(TAG, "onStatusChanged: " + status);
 		}
 
 		@Override
 		public void onProviderEnabled(String provider) {
-			/* dont need this info */
+            //Log.d(TAG, "onProviderEnabled: " + provider);
+            appView.sendJavascript("cordova.fireWindowEvent('gps.enabled');");
 		}
 
 		@Override
 		public void onProviderDisabled(String provider) {
-			/* dont need this info */
+            //Log.d(TAG, "onProviderDisabled: " + provider);
+            appView.sendJavascript("cordova.fireWindowEvent('gps.disabled');");
 		}
 
 
