@@ -69,6 +69,10 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
         callbackContext.success(r);
         return true;
     }
+		else if(action.equals("isEnabled")){
+            callbackContext.success(isGpsEnabled() ? 1 : 0);
+            return true;
+        }
 		else if(action.equals("getCurrentLocation")){
 				JSONObject r = new JSONObject();
 				r.put("latitude", latitude);
@@ -97,6 +101,17 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,MINIMUM_UPDATE_TIME, MINIMUM_UPDATE_DISTANCE, gpsListener);
 		Log.d(TAG, "startGps started");
 	}
+
+	public boolean isGpsEnabled() {
+        boolean result = isLocationProviderEnabled(LocationManager.GPS_PROVIDER);
+        Log.d(TAG, "GPS enabled: " + result);
+        return result;
+    }
+
+    private boolean isLocationProviderEnabled(String provider) {
+        LocationManager locationManager = (LocationManager) this.cordova.getActivity().getSystemService(Context.LOCATION_SERVICE);
+        return locationManager.isProviderEnabled(provider);
+    }
 
 	/*@Override
 	protected void onResume() {
