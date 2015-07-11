@@ -12,16 +12,16 @@ Installation
 
 Methods
 -------
-- navigator.gps.getStatus
-- navigator.gps.getCurrentLocation
+- cordova.plugins.gps.getStatus
+- cordova.plugins.gps.getCurrentLocation
 
 
-navigator.gps.getStatus
+cordova.plugins.gps.getStatus
 =================
 
 <pre>
 <code>
-  navigator.gps.getStatus(function(gpsstats){
+  cordova.plugins.gps.getStatus(function(gpsstats){
     console.log(JSON.stringify(gpsstats));
   }, function(error){
     console.log(error);
@@ -35,12 +35,12 @@ Response fields:
 - grade
 - accuracy
 
-navigator.gps.getCurrentLocation
+cordova.plugins.gps.getCurrentLocation
 =================
 
 <pre>
 <code>
-  navigator.gps.getCurrentLocation(function(position){
+  cordova.plugins.gps.getCurrentLocation(function(position){
       console.log(JSON.stringify(position));
   }, function(error){
     console.log(error);
