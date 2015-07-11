@@ -11,14 +11,14 @@ gps.prototype.getStatus = function (successCallback, errorCallback) {
     var onsuccess = function(gpsStatus){
       successCallback(JSON.parse(gpsStatus));
     }
-    exec(onsuccess, errorCallback, "GPS", "getStatus");
+    exec(onsuccess, errorCallback, "GPS", "getStatus", []);
 }
 
 gps.prototype.getCurrentLocation = function (successCallback, errorCallback) {
     var onsuccess = function(location){
       successCallback(JSON.parse(location));
     }
-    exec(onsuccess, errorCallback, "GPS", "getCurrentLocation");
+    exec(onsuccess, errorCallback, "GPS", "getCurrentLocation", []);
 }
-
-module.exports = gps;
+var gpsPlugin = new gps();
+module.exports = gpsPlugin;

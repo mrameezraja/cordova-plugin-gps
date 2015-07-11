@@ -1,4 +1,4 @@
-package com.mrameezraja.plugins.gpsfix;
+package com.mrameezraja.plugins.gps;
 
 import java.util.LinkedList;
 import java.util.List;
