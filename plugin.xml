@@ -21,6 +21,6 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/GPS.java" target-dir="com/mrameezraja/plugins/gps" />
+        <source-file src="src/android/GPS.java" target-dir="src/com/mrameezraja/plugins/gps" />
     </platform>
 </plugin>
