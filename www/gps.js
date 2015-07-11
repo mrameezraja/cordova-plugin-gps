@@ -7,7 +7,7 @@ var gps = function() {
 
 };
 
-gps.prototype.getStatus = function (successCallback, errorCallback) {
+gps.prototype.getStatus = gps.getStatus = function (successCallback, errorCallback) {
     var onsuccess = function(gpsStatus){
       successCallback(JSON.parse(gpsStatus));
     }
