@@ -46,7 +46,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 	private int satellitesUsed;
 	private float accuracy = 60;
 
-	final CordovaWebView appView = webView;
+	private CordovaWebView appView = webView;
 
 	private String TAG = "GPSPlugin";
 
@@ -146,7 +146,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 
 	private void sendJavascript(final String javascript) {
 
-				webView.post(new Runnable() {
+				/*webView.post(new Runnable() {
 				    @Override
 				    public void run() {
 						// See: https://github.com/GoogleChrome/chromium-webview-samples/blob/master/jsinterface-example/src/com/google/chrome/android/example/jsinterface/MainActivity.java
@@ -156,7 +156,8 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 							webView.loadUrl("javascript:" + javascript);
 						}
 				    }
-				});
+				});*/
+				appView.sendJavascript(javascript);
 			}
 
 	protected class MyGpsListener implements GpsStatus.Listener, LocationListener {
