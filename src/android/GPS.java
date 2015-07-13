@@ -180,7 +180,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 		@Override
 		public void onGpsStatusChanged(int changeType) {
 			if (locationManager != null) {
-				Log.d(TAG, "calling onGpsStatusChanged...");
+				//Log.d(TAG, "calling onGpsStatusChanged...");
 				// status changed so ask what the change was
 				GpsStatus status = locationManager.getGpsStatus(null);
 				switch(changeType) {
